@@ -6,8 +6,13 @@
           <v-card>
             <v-img v-bind:src="char.img"></v-img>
             <v-card-title>
-              {{ char.name }}
-            </v-card-title>
+              <router-link
+                class="text-decoration-none"
+                :to="{ name: 'OneChar', params: { id: char.id } }"
+              >
+                {{ char.name }}
+              </router-link>
+            </v-card-title> 
             <v-card-subtitle>From {{char.show}}</v-card-subtitle>
             <v-card-actions>
               <v-btn icon>
@@ -18,8 +23,6 @@
         </v-flex>
       </v-layout>
     </v-container>
-    
-    <button v-on:click="getAll()">hey</button>
   </div>
 </template>
 
@@ -41,10 +44,6 @@ export default Vue.extend({
       const result = CharacterService.getAllChars();
       console.log(result);
     },
-    //   addChar(id: number, name: string, show: string, traits: any, isFave: boolean, img: string) {
-    //       Character =
-    //       CharacterService.addChar(id,name, show, traits, isFave, img)
-    //   }
   },
 });
 </script>

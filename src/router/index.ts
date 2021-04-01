@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import AllChar from '../views/AllChar.vue';
 import About from '../views/About.vue';
 import AddChar from '../views/AddChar.vue'
+import OneChar from '../views/OneChar.vue'
 
 Vue.use(VueRouter)
 
@@ -26,9 +27,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/characters/:id',
     name: 'OneChar',
+    component: OneChar
   },
   {
-    path: '/characters/add}',
+    path: '/add',
     name: 'AddChar',
     component: AddChar
   }
@@ -36,7 +38,7 @@ const routes: Array<RouteConfig> = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: "",
   routes
 })
 
