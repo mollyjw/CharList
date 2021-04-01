@@ -6,8 +6,7 @@ export const CharacterList: Character[] = [
           show: "Golden Girls",
           traits: ["confident", "charming", "man-crazy"],
           isFave: true,
-          img:
-            "https://static.wikia.nocookie.net/goldengirls/images/c/cb/Blanche.jpg/revision/latest/smart/width/200/height/200?cb=20180117224407",
+          img: "https://static.wikia.nocookie.net/goldengirls/images/c/cb/Blanche.jpg/revision/latest/scale-to-width-down/290?cb=20180117224407"
         },
         {
           id: 2,

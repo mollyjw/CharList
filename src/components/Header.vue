@@ -2,7 +2,7 @@
   <v-app-bar>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/all">View All</router-link>
+      <router-link to="/characters/all">View All</router-link>
     
   </v-app-bar>
 </template>

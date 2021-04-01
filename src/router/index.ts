@@ -1,8 +1,9 @@
-import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
-import AllChar from '../views/AllChar.vue'
-import About from '../views/About.vue'
+import Vue from 'vue';
+import VueRouter, { RouteConfig } from 'vue-router';
+import Home from '../views/Home.vue';
+import AllChar from '../views/AllChar.vue';
+import About from '../views/About.vue';
+import AddChar from '../views/AddChar.vue'
 
 Vue.use(VueRouter)
 
@@ -18,9 +19,18 @@ const routes: Array<RouteConfig> = [
     component: About
   },
   {
-    path: '/all',
+    path: '/characters/all',
     name: 'All Characters',
     component: AllChar
+  },
+  {
+    path: '/characters/:id',
+    name: 'OneChar',
+  },
+  {
+    path: '/characters/add}',
+    name: 'AddChar',
+    component: AddChar
   }
 ]
 
