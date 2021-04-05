@@ -1,14 +1,15 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+  <div>
+    <v-sheet color="secondary" height="100em" width="100%">
+      <h1>home page ugh</h1>
+    </v-sheet>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
 export default Vue.extend({
-  name: 'Home',
-  
+  name: "Home",
 });
 </script>

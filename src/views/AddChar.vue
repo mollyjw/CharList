@@ -9,26 +9,26 @@
   >
 
     <v-text-field
-      v-model="character.name"
+      v-model="newChar.name"
       :rules="nameRules"
       label="Name"
       required
     ></v-text-field>
 
     <v-text-field
-      v-model="character.show"
+      v-model="newChar.show"
       :rules="showRules"
       label="TV Show"
       required
     ></v-text-field>
 
     <v-text-field
-      v-model="character.traits"
+      v-model="newChar.traits"
       label="Trait"
     ></v-text-field>
 
     <v-text-field
-      v-model="character.img"
+      v-model="newChar.img"
       label="Image URL"
     ></v-text-field>
 
@@ -36,7 +36,7 @@
 
     <v-btn
       :disabled="!valid"
-      @click="addChar(character)"
+      @click="addChar(newChar)"
     >
       Validate
     </v-btn>
@@ -63,14 +63,15 @@ export default Vue.extend({
     name: 'AddChar',
     data: function() {
         return {
-            character: {
-                id: Math.floor(Math.random() * 100),
-                name: "",
-                show: "",
-                traits: "",
-                isFave: false,
-                img: ""
-            },
+            // character: {
+            //     id: Math.floor(Math.random() * 100),
+            //     name: "",
+            //     show: "",
+            //     traits: "",
+            //     isFave: false,
+            //     img: ""
+            // },
+            newChar: new Character(Math.floor(Math.random() * (201 -9) + 10), '', '', '', false, ''),
             valid: true,
             nameRules: [
                 v => !!v || "Name is required",
@@ -92,16 +93,15 @@ export default Vue.extend({
 
     methods: {
         reset () {
-            this.character.id = this.randId,
-            this.character.name = '',
-            this.character.show = '',
-            this.character.traits = '',
-            this.character.isFave = false,
-            this.character.img = ''
+            this.newChar.id = this.randId,
+            this.newChar.name = '',
+            this.newChar.show = '',
+            this.newChar.traits = '',
+            this.newChar.isFave = false,
+            this.newChar.img = ''
         },
-        //currently resets before sending data, need to look up how I fixed before
         addChar(character: Character) {
-            CharacterService.addChar(character);
+            CharacterService.addChar(new Character(this.newChar.id, this.newChar.name, this.newChar.show, this.newChar.traits, this.newChar.isFave, this.newChar.img));
             this.reset();
         },
 

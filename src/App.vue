@@ -1,5 +1,5 @@
 <template>
-  <v-app class="">
+  <v-app >
   <div class="app">
     <div class="nav">
       <Header />

@@ -1,28 +1,39 @@
 <template>
-  <div class="allchar">
-    <v-container fluid grid-list-lg>
-      <v-layout row wrap>
-        <v-flex v-for="char in allChar" v-bind:key="char.id">
-          <v-card>
-            <v-img v-bind:src="char.img"></v-img>
-            <v-card-title>
-              <router-link
-                class="text-decoration-none"
-                :to="{ name: 'OneChar', params: { id: char.id } }"
+  <div>
+    <v-sheet color="secondary" height="100%" width="100%">
+      <div style="text-align: center">
+      <v-btn style="margin-top: 2%">
+        <router-link style="text-decoration: none" to="/add">Add a Character</router-link>
+      </v-btn>
+      </div>
+      <v-container fluid grid-list-lg style="margin: 1% 0%">
+        <v-layout row wrap>
+          <v-flex
+            v-for="char in allChar"
+            v-bind:key="char.id"
+            d-flex
+            xs12
+            sm6
+            md6
+          >
+            <v-card style="margin: 2%" width="55em">
+              <v-img v-bind:src="char.img" style="width: 100%"></v-img>
+              <v-card-title>
+                <router-link
+                  class="text-decoration-none"
+                  :to="{ name: 'OneChar', params: { id: char.id } }"
+                >
+                  {{ char.name }}
+                </router-link>
+              </v-card-title>
+              <v-card-subtitle
+                >From <i>{{ char.show }}</i></v-card-subtitle
               >
-                {{ char.name }}
-              </router-link>
-            </v-card-title> 
-            <v-card-subtitle>From {{char.show}}</v-card-subtitle>
-            <v-card-actions>
-              <v-btn icon>
-                <v-icon class="black--text">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-sheet>
   </div>
 </template>
 

@@ -10,8 +10,19 @@ export default {
         CharacterList.push(Character);
     },
 
-    //currently will not work for any added characters because it works based off of array id (first add to array is 5th el with index of 4)
+    //returns a filtered list of objects where the object's id matches the passed in id 
     getOneChar(id: number){
-        return CharacterList[id - 1];
+        const result = CharacterList.filter(obj => {
+            return obj.id === id
+        })[0]
+        return result;
+    },
+
+    deleteOneChar(id: number){
+        CharacterList.splice(CharacterList.findIndex(char => char.id === id), 1)
+        // const result = CharacterList.filter(obj => {
+        //     return obj.id === id
+        // })[0];
+        // return result; 
     }
 }
