@@ -1,13 +1,15 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <v-sheet color="secondary" height="100em" width="100%">
+      <h1>This is an about page</h1>
+    </v-sheet>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
 export default Vue.extend({
-  name: 'About'  
+  name: "About",
 });
 </script>
