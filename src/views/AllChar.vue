@@ -1,10 +1,15 @@
 <template>
   <div>
-    <v-sheet color="secondary" height="100%" width="100%" style="margin-bottom: -1%;">
+    <v-sheet
+      color="secondary"
+      height="100%"
+      width="100%"
+      style="margin-bottom: -1%"
+    >
       <div style="text-align: center">
-      <v-btn style="margin-top: 2%">
-        <router-link style="text-decoration: none" to="/add">Add a Character</router-link>
-      </v-btn>
+        <router-link style="text-decoration: none" to="/add">
+          <v-btn style="margin-top: 2%" color="primary"> Add a Character </v-btn>
+        </router-link>
       </div>
       <v-container fluid grid-list-lg style="margin: 1% 0%">
         <v-layout row wrap>

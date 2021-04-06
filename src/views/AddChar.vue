@@ -23,14 +23,27 @@
             required
           ></v-text-field>
 
-          <v-text-field v-model="newChar.traits" label="Trait"></v-text-field>
+          <v-text-field v-model="newChar.traits" label="Traits"></v-text-field>
 
           <v-text-field v-model="newChar.img" label="Image URL"></v-text-field>
           <v-row style="text-align: center">
-            <v-btn :disabled="!valid" @click="addChar(newChar)" color="primary">
+            <v-btn :disabled="!valid" @click="addChar(newChar), snackbar = true" color="primary">
               Add
             </v-btn>
+            <v-snackbar v-model="snackbar" :timeout="timeout">
+              Character Added!
 
+              <template v-slot:action="{ attrs }">
+                <v-btn
+                  color="primary"
+                  text
+                  v-bind="attrs"
+                  @click="snackbar = false"
+                >
+                  Close
+                </v-btn>
+              </template>
+            </v-snackbar>
             <v-btn color="error" class="mr-4" @click="reset"> Clear </v-btn>
           </v-row>
         </v-form>
@@ -48,14 +61,6 @@ export default Vue.extend({
   name: "AddChar",
   data: function () {
     return {
-      // character: {
-      //     id: Math.floor(Math.random() * 100),
-      //     name: "",
-      //     show: "",
-      //     traits: "",
-      //     isFave: false,
-      //     img: ""
-      // },
       newChar: new Character(
         Math.floor(Math.random() * (201 - 9) + 10),
         "",
@@ -65,6 +70,8 @@ export default Vue.extend({
         ""
       ),
       valid: true,
+      snackbar: false,
+      timeout: 2000,
       nameRules: [
         (v) => !!v || "Name is required",
         (v) => (v && v.length >= 2) || "Name must be at least 2 characters",
