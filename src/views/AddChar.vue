@@ -3,7 +3,12 @@
     <v-sheet color="secondary" height="100em" width="100%">
       <h1 style="text-align: center; padding-top: 1%">Add a Character</h1>
       <v-sheet color="whitesmoke" style="margin: 3%">
-        <v-form ref="form" v-model="valid" lazy-validation style="margin: 2%; padding: 2%">
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+          style="margin: 2%; padding: 2%"
+        >
           <v-text-field
             v-model="newChar.name"
             :rules="nameRules"
@@ -21,12 +26,13 @@
           <v-text-field v-model="newChar.traits" label="Trait"></v-text-field>
 
           <v-text-field v-model="newChar.img" label="Image URL"></v-text-field>
+          <v-row style="text-align: center">
+            <v-btn :disabled="!valid" @click="addChar(newChar)" color="primary">
+              Add
+            </v-btn>
 
-          <v-btn :disabled="!valid" @click="addChar(newChar)" color="primary" style="text-align: center">
-            Add
-          </v-btn>
-
-          <v-btn color="error" class="mr-4" @click="reset"> Clear </v-btn>
+            <v-btn color="error" class="mr-4" @click="reset"> Clear </v-btn>
+          </v-row>
         </v-form>
       </v-sheet>
     </v-sheet>
